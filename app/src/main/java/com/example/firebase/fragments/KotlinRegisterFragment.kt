@@ -20,7 +20,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 class KotlinRegisterFragment : Fragment() {
 
     private val TAG = "RegisterKotlinFragment"
-    private lateinit var firebaseAuth: FirebaseAuth
+    private lateinit var auth: FirebaseAuth
     private lateinit var fstore: FirebaseFirestore
 
     private lateinit var registerBtn: Button
@@ -38,7 +38,7 @@ class KotlinRegisterFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_register_kotlin, container, false)
 
         fstore = FirebaseFirestore.getInstance()
-        firebaseAuth = FirebaseAuth.getInstance()
+        auth = FirebaseAuth.getInstance()
 
         registerBtn = view.findViewById(R.id.registerBtn)
         fname = view.findViewById(R.id.fname)
@@ -69,17 +69,17 @@ class KotlinRegisterFragment : Fragment() {
             } else {
                 registerBtn.visibility = View.GONE
                 progressBar.visibility = View.VISIBLE
-                firebaseAuth.createUserWithEmailAndPassword(emailStr, passwordStr)
+                auth.createUserWithEmailAndPassword(emailStr, passwordStr)
                     .addOnCompleteListener { task ->
                         if (task.isSuccessful) {
                             val user = hashMapOf(
-                                "userID" to firebaseAuth.currentUser!!.uid,
+                                "userID" to auth.currentUser!!.uid,
                                 "fname" to fnameStr,
                                 "lname" to lnameStr,
                                 "email" to emailStr
                             )
                             fstore.collection(FirebaseHelper.USER_COLLECTION)
-                                .document(firebaseAuth.currentUser!!.uid)
+                                .document(auth.currentUser!!.uid)
                                 .set(user).addOnCompleteListener { task1 ->
                                     if (task1.isSuccessful) {
                                         val intent = Intent(context, MainActivity::class.java)
