@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".KotlinActivity">
+
+    <FrameLayout
+        android:id="@+id/fragmentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="5dp">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabLogin"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_above="@id/fabRegister"
+            android:layout_marginBottom="5dp"
+            android:backgroundTint="@color/teal_200"
+            android:importantForAccessibility="yes"
+            android:src="@drawable/baseline_login_24"
+            app:fabSize="normal" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabRegister"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginBottom="5dp"
+            android:backgroundTint="@color/purple_500"
+            android:importantForAccessibility="yes"
+            android:src="@drawable/round_register_24"
+            app:fabSize="normal" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabNext"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:backgroundTint="@color/yellow"
+            android:importantForAccessibility="yes"
+            android:src="@drawable/baseline_airline_stops_24"
+            app:fabSize="normal" />
+
+    </LinearLayout>
+
+</RelativeLayout>
