@@ -63,6 +63,7 @@ public class JavaRegisterFragment extends Fragment {
                         .addOnCompleteListener(task -> {
                             if (task.isSuccessful()) {
 
+                                //create user object
                                 HashMap<String, Object> user = new HashMap<>();
                                 user.put("userID", firebaseAuth.getCurrentUser().getUid());
                                 user.put("fname", fnameStr);
